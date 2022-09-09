@@ -1,11 +1,9 @@
 # CardScanLib
 To get a Git project into your build:
 
-Step 1. Add the JitPack repository to your build file
+## Step 1. Add the JitPack repository to your build file
 Add it in your root build.gradle at the end of repositories:
-  
-
-
+```
 allprojects {
    repositories {
      ..
@@ -13,27 +11,27 @@ allprojects {
      ..
   }
 }
+```
+## Step 2. Add the dependency Gradle:
 
-
-Step 2. Add the dependency Gradle:
-
-
+```
 //Scan Card
 implementation 'com.github.fozilbekimomov:card_scan_base:latest_version'
 //TensorFlow
 implementation 'org.tensorflow:tensorflow-lite:2.9.0'
+```
 
-
-Step 3. Create Application class
-
-
+## Step 3. Create Application class
+```
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
         ScanBaseActivity.warmUp(this)
     }
 }
-Step 4. Modify your App Activity
+```
+## Step 4. Modify your App Activity
+```
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -100,6 +98,6 @@ class MainActivity : AppCompatActivity() {
     }
     */
 }
-
+```
 
 For bugs, feature requests, and discussion, please use GitHub Issues. For general questions ONLY, please contact via Telegram.
