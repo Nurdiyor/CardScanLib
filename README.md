@@ -1,4 +1,4 @@
-[![Release](https://jitpack.io/v/jitpack/android-example.svg)](https://jitpack.io/Nurdiyor/CardScanLib)
+[![Release](https://jitpack.io/com/github/Nurdiyor/CardScanLib/CardScanBase/1.3/javadoc/))
 # CardScanLib
 To get a Git project into your build:
 
