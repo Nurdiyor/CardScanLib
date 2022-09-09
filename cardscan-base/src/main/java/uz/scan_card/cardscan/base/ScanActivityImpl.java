@@ -4,14 +4,12 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,17 +45,19 @@ public class ScanActivityImpl extends ScanBaseActivity {
             ((TextView) findViewById(R.id.positionCard)).setText(positionCardText);
         }
 
-        Bitmap torchOnIcon =null;
-        Bitmap torchOffIcon =null;
+        Bitmap torchOnIcon = null;
+        Bitmap torchOffIcon = null;
 
-        if (getIntent().getByteArrayExtra(SCAN_CARD_TORCH_ON) != null && getIntent().getByteArrayExtra(SCAN_CARD_TORCH_OFF)!=null) {
+        if (getIntent().getByteArrayExtra(SCAN_CARD_TORCH_ON) != null && getIntent().getByteArrayExtra(SCAN_CARD_TORCH_OFF) != null) {
 
-             torchOnIcon = BitmapHelper.byteArrayToBitmap(getIntent().getByteArrayExtra(SCAN_CARD_TORCH_ON));
-             torchOffIcon = BitmapHelper.byteArrayToBitmap(getIntent().getByteArrayExtra(SCAN_CARD_TORCH_OFF));
+            torchOnIcon = BitmapHelper.byteArrayToBitmap(getIntent().getByteArrayExtra(SCAN_CARD_TORCH_ON));
+            torchOffIcon = BitmapHelper.byteArrayToBitmap(getIntent().getByteArrayExtra(SCAN_CARD_TORCH_OFF));
 
         }
 
-        if (torchOnIcon != null && torchOffIcon != null) {
+        ((ImageView) findViewById(R.id.flashlightButton)).setImageBitmap(torchOffIcon);
+
+        /*if (torchOnIcon != null && torchOffIcon != null) {
             StateListDrawable sld = new StateListDrawable();
             sld.addState(new int[]{-android.R.attr.state_checked}, BitmapHelper.byteArrayToDrawable(getResources(), getIntent().getByteArrayExtra(SCAN_CARD_TORCH_ON)));
             sld.addState(new int[]{}, BitmapHelper.byteArrayToDrawable(getResources(), getIntent().getByteArrayExtra(SCAN_CARD_TORCH_OFF)));
@@ -66,7 +66,7 @@ public class ScanActivityImpl extends ScanBaseActivity {
             ((CheckBox) findViewById(R.id.flashlightButton)).setBackground(BitmapHelper.byteArrayToDrawable(getResources(), getIntent().getByteArrayExtra(SCAN_CARD_TORCH_ON)));
         } else if (torchOffIcon != null) {
             ((CheckBox) findViewById(R.id.flashlightButton)).setBackground(BitmapHelper.byteArrayToDrawable(getResources(), getIntent().getByteArrayExtra(SCAN_CARD_TORCH_OFF)));
-        }
+        }*/
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
