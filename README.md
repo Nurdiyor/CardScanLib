@@ -16,7 +16,7 @@ allprojects {
 
 ```
 //Scan Card
-implementation 'com.github.YusufbekIbragimov:CardScanLib:latest_version'
+implementation 'com.github.Nurdiyor:CardScanLib:latest_version'
 //TensorFlow
 implementation 'org.tensorflow:tensorflow-lite:2.9.0'
 ```
